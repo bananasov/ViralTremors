@@ -22,6 +22,7 @@ namespace ViralTremors
             harmony.PatchAll(typeof(Patches.PlayerPatches));
             harmony.PatchAll(typeof(Patches.Bot_WeepingPatches));
             harmony.PatchAll(typeof(Patches.DivingBellPatches));
+            harmony.PatchAll(typeof(Patches.ShockStickPatches));
 
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} has loaded!");
         }

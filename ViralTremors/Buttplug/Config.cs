@@ -43,6 +43,12 @@ namespace ViralTremors.Buttplug
         internal static ConfigEntry<float> DivingBellReturningDuration { get; set; }
         internal static ConfigEntry<float> DivingBellReturningStrength { get; set; }
         #endregion
+
+        #region Shock stick
+        internal static ConfigEntry<bool> ShockStickEnabled { get; set; }
+        internal static ConfigEntry<float> ShockStickDuration { get; set; }
+        internal static ConfigEntry<float> ShockStickStrength { get; set; }
+        #endregion
         
         static Config()
         {
@@ -88,6 +94,12 @@ namespace ViralTremors.Buttplug
             
             DivingBellReturningDuration = ConfigFile.Bind("Vibrations.DivingBell.Returning", "Duration", 1.0f, "Length of time to vibrate for");
             DivingBellReturningStrength = ConfigFile.Bind("Vibrations.DivingBell.Returning", "Strength", 1.0f, "The strength of the vibration (value from 0.0 to 1.0)");
+            #endregion
+
+            #region Shock Stick
+            ShockStickEnabled = ConfigFile.Bind("Vibrations.ShockStick", "Enabled", true, "Vibrate when you shock something/someone");
+            ShockStickDuration = ConfigFile.Bind("Vibrations.ShockStick", "Duration", 1.0f, "Length of time to vibrate for");
+            ShockStickStrength = ConfigFile.Bind("Vibrations.ShockStick", "Strength", 1.0f, "The strength of the vibration (value from 0.0 to 1.0)");
             #endregion
         }
     }
