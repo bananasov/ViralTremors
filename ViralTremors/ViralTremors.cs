@@ -19,7 +19,7 @@ namespace ViralTremors
             DeviceManager.ConnectDevices();
 
             var harmony = new Harmony(PluginInfo.PLUGIN_GUID);
-            harmony.PatchAll();
+            harmony.PatchAll(typeof(Patches.PlayerPatches));
 
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} has loaded!");
         }
