@@ -36,4 +36,20 @@ internal static class PlayerPatches
             ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.DeathStrength.Value, Config.DeathDuration.Value);
         }
     }
+    
+    [HarmonyPatch(typeof(Player), "CallRevive")]
+    [HarmonyPostfix]
+    // ReSharper disable once InconsistentNaming
+    private static void CallRevive(Player __instance)
+    {
+        if (!__instance.IsLocal)
+            return;
+        
+        ViralTremors.Mls.LogDebug($"CallRevive got called");
+
+        if (ViralTremors.DeviceManager.IsConnected() && Config.ReviveEnabled.Value)
+        {
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.ReviveStrength.Value, Config.ReviveDuration.Value);
+        }
+    }
 }
