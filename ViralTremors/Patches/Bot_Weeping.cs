@@ -16,7 +16,8 @@ public class Bot_WeepingPatches
 
         if (ViralTremors.DeviceManager.IsConnected() && Config.WeepingEnemyCaptureEnabled.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.WeepingEnemyCaptureStrength.Value, Config.WeepingEnemyCaptureDuration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.WeepingEnemyCaptureStrength.Value,
+                Config.WeepingEnemyCaptureDuration.Value);
         }
     }
 }

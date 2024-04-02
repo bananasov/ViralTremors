@@ -10,11 +10,11 @@ namespace ViralTremors
     {
         internal static DeviceManager DeviceManager { get; private set; }
         internal static ManualLogSource Mls { get; private set; }
-        
+
         private void Awake()
         {
             Mls = Logger;
-            
+
             DeviceManager = new DeviceManager("ViralTremors");
             DeviceManager.ConnectDevices();
 

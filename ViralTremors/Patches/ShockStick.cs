@@ -13,12 +13,13 @@ public class ShockStickPatches
     private static void OnShock(ShockStick __instance, Player playerToShock)
     {
         if (!__instance.isHeldByMe) return;
-        
+
         ViralTremors.Mls.LogDebug($"OnShock got called");
 
         if (ViralTremors.DeviceManager.IsConnected() && Config.ShockStickEnabled.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.ShockStickStrength.Value, Config.ShockStickDuration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.ShockStickStrength.Value,
+                Config.ShockStickDuration.Value);
         }
     }
 }
