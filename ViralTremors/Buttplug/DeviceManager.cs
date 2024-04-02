@@ -45,7 +45,7 @@ namespace ViralTremors.Buttplug
             }
         }
 
-        public void VibrateConnectedDevicesWithDuration(double intensity, float time)
+        public void VibrateConnectedDevicesWithDuration(float intensity, float time)
         {
             ConnectedDevices.ForEach(Action);
             return;
