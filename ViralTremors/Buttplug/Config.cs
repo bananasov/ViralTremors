@@ -31,6 +31,18 @@ namespace ViralTremors.Buttplug
         #endregion
         
         #endregion
+
+        #region Diving bell config entries
+        internal static ConfigEntry<bool> DivingBellEnabled { get; set; }
+        internal static ConfigEntry<bool> DivingBellReturningEnabled { get; set; }
+        internal static ConfigEntry<bool> DivingBellTravelingEnabled { get; set; }
+        
+        internal static ConfigEntry<float> DivingBellTravelingDuration { get; set; }
+        internal static ConfigEntry<float> DivingBellTravelingStrength { get; set; }
+        
+        internal static ConfigEntry<float> DivingBellReturningDuration { get; set; }
+        internal static ConfigEntry<float> DivingBellReturningStrength { get; set; }
+        #endregion
         
         static Config()
         {
@@ -64,6 +76,18 @@ namespace ViralTremors.Buttplug
             WeepingEnemyCaptureStrength = ConfigFile.Bind("Vibrations.WeepingEnemy.Capture", "Strength", 1.0f, "The strength of the vibration (value from 0.0 to 1.0)");
             #endregion
             
+            #endregion
+
+            #region Diving Bell
+            DivingBellEnabled = ConfigFile.Bind("Vibrations.DivingBell", "Enabled", true, "Whether or not to enable/disable diving bell vibrations");
+            DivingBellReturningEnabled = ConfigFile.Bind("Vibrations.DivingBell.Returning", "Enabled", true, "Vibrate when you go to the surface");
+            DivingBellTravelingEnabled = ConfigFile.Bind("Vibrations.DivingBell.Travelling", "Enabled", true, "Vibrate when you go to the underworld");
+            
+            DivingBellTravelingDuration = ConfigFile.Bind("Vibrations.DivingBell.Travelling", "Duration", 1.0f, "Length of time to vibrate for");
+            DivingBellTravelingStrength = ConfigFile.Bind("Vibrations.DivingBell.Travelling", "Strength", 1.0f, "The strength of the vibration (value from 0.0 to 1.0)");
+            
+            DivingBellReturningDuration = ConfigFile.Bind("Vibrations.DivingBell.Returning", "Duration", 1.0f, "Length of time to vibrate for");
+            DivingBellReturningStrength = ConfigFile.Bind("Vibrations.DivingBell.Returning", "Strength", 1.0f, "The strength of the vibration (value from 0.0 to 1.0)");
             #endregion
         }
     }
