@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 ---
+## [0.2.0](https://github.com/bananasov/LethalVibrations/compare/v0.1.1..v0.2.0) - 2024-04-03
+
+### Bug Fixes
+
+- Fix cross-platform support for justfile rm-dir - ([0175ddb](https://github.com/bananasov/LethalVibrations/commit/0175ddb2b50f47cc56c679392e594cd4663bf35c)) - ElonGates
+- Fix justfile not cleaning up - ([378b6ad](https://github.com/bananasov/LethalVibrations/commit/378b6ad754bbf853f4921b96b13ac26905efb34b)) - sovnya
+
+### Features
+
+- Remove costura so thunderstore mods are happy - ([ca09383](https://github.com/bananasov/LethalVibrations/commit/ca09383ab64e3526e9f9e47f3c78b54798526881)) - sovnya
+
+### Miscellaneous Chores
+
+- Update justfile for new csproj changes - ([a319acc](https://github.com/bananasov/LethalVibrations/commit/a319acc71edf66ed139fcb534bdb4210dab59d41)) - sovnya
+
+---
 ## [0.1.1](https://github.com/bananasov/LethalVibrations/compare/v0.1.0..v0.1.1) - 2024-04-03
 
 ### Bug Fixes
