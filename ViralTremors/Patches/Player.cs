@@ -15,10 +15,10 @@ internal static class PlayerPatches
 
         ViralTremors.Mls.LogDebug($"TakeDamage got called: {damage} ({damage / 100f})");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.DamageTakenEnabled.Value)
+        if (ViralTremors.DeviceManager.IsConnected() && Config.Player.DamageTaken.Enabled.Value)
         {
             ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration((damage / 100f),
-                Config.DamageTakenDuration.Value);
+                Config.Player.DamageTaken.Duration.Value);
         }
     }
 
@@ -32,10 +32,10 @@ internal static class PlayerPatches
 
         ViralTremors.Mls.LogDebug($"Die got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.DeathEnabled.Value)
+        if (ViralTremors.DeviceManager.IsConnected() && Config.Player.Death.Enabled.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.DeathStrength.Value,
-                Config.DeathDuration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Player.Death.Strength.Value,
+                Config.Player.Death.Duration.Value);
         }
     }
 
@@ -49,10 +49,10 @@ internal static class PlayerPatches
 
         ViralTremors.Mls.LogDebug($"CallRevive got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.ReviveEnabled.Value)
+        if (ViralTremors.DeviceManager.IsConnected() && Config.Player.Revive.Enabled.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.ReviveStrength.Value,
-                Config.ReviveDuration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Player.Revive.Strength.Value,
+                Config.Player.Revive.Duration.Value);
         }
     }
 
@@ -66,10 +66,10 @@ internal static class PlayerPatches
 
         ViralTremors.Mls.LogDebug($"Heal got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.HealEnabled.Value)
+        if (ViralTremors.DeviceManager.IsConnected() && Config.Player.Heal.Enabled.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.HealStrength.Value,
-                Config.HealDuration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Player.Heal.Strength.Value,
+                Config.Player.Heal.Duration.Value);
         }
     }
 }

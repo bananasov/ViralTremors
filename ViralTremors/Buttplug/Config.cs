@@ -3,108 +3,147 @@ using BepInEx.Configuration;
 
 namespace ViralTremors.Buttplug
 {
-    internal class Config
+    internal static class Config
     {
         private static ConfigFile ConfigFile { get; set; }
 
         internal static ConfigEntry<string> ServerUri { get; set; }
 
-        #region Player related config entries
+        internal static class Player
+        {
+            internal static class DamageTaken
+            {
+                internal static ConfigEntry<bool> Enabled { get; set; }
+                internal static ConfigEntry<float> Duration { get; set; }
+            }
 
-        internal static ConfigEntry<bool> DamageTakenEnabled { get; set; }
-        internal static ConfigEntry<float> DamageTakenDuration { get; set; }
+            internal static class Death
+            {
+                internal static ConfigEntry<bool> Enabled { get; set; }
+                internal static ConfigEntry<float> Duration { get; set; }
+                internal static ConfigEntry<float> Strength { get; set; }
+            }
 
-        internal static ConfigEntry<bool> DeathEnabled { get; set; }
-        internal static ConfigEntry<float> DeathDuration { get; set; }
-        internal static ConfigEntry<float> DeathStrength { get; set; }
+            internal static class Revive
+            {
+                internal static ConfigEntry<bool> Enabled { get; set; }
+                internal static ConfigEntry<float> Duration { get; set; }
+                internal static ConfigEntry<float> Strength { get; set; }
+            }
 
-        internal static ConfigEntry<bool> ReviveEnabled { get; set; }
-        internal static ConfigEntry<float> ReviveDuration { get; set; }
-        internal static ConfigEntry<float> ReviveStrength { get; set; }
-        
-        internal static ConfigEntry<bool> HealEnabled { get; set; }
-        internal static ConfigEntry<float> HealDuration { get; set; }
-        internal static ConfigEntry<float> HealStrength { get; set; }
-        #endregion
+            internal static class Heal
+            {
+                internal static ConfigEntry<bool> Enabled { get; set; }
+                internal static ConfigEntry<float> Duration { get; set; }
+                internal static ConfigEntry<float> Strength { get; set; }
+            }
+        }
 
-        #region Enemy related config entries
+        internal static class Enemy
+        {
+            internal static class Weeping
+            {
+                internal static class Capture
+                {
+                    internal static ConfigEntry<bool> Enabled { get; set; }
+                    internal static ConfigEntry<float> Duration { get; set; }
+                    internal static ConfigEntry<float> Strength { get; set; }
+                }
+            }
+        }
 
-        #region Weeping config entries
+        internal static class Item
+        {
+            internal static class ShockStick
+            {
+                internal static ConfigEntry<bool> Enabled { get; set; }
+                internal static ConfigEntry<float> Duration { get; set; }
+                internal static ConfigEntry<float> Strength { get; set; }
+            }
+        }
 
-        internal static ConfigEntry<bool> WeepingEnemyCaptureEnabled { get; set; }
-        internal static ConfigEntry<float> WeepingEnemyCaptureDuration { get; set; }
-        internal static ConfigEntry<float> WeepingEnemyCaptureStrength { get; set; }
+        internal static class DivingBell
+        {
+            internal static class Returning
+            {
+                internal static ConfigEntry<bool> Enabled { get; set; }
+                internal static ConfigEntry<float> Duration { get; set; }
+                internal static ConfigEntry<float> Strength { get; set; }
+            }
 
-        #endregion
-
-        #endregion
-
-        #region Diving bell config entries
-
-        internal static ConfigEntry<bool> DivingBellEnabled { get; set; }
-        internal static ConfigEntry<bool> DivingBellReturningEnabled { get; set; }
-        internal static ConfigEntry<bool> DivingBellTravelingEnabled { get; set; }
-
-        internal static ConfigEntry<float> DivingBellTravelingDuration { get; set; }
-        internal static ConfigEntry<float> DivingBellTravelingStrength { get; set; }
-
-        internal static ConfigEntry<float> DivingBellReturningDuration { get; set; }
-        internal static ConfigEntry<float> DivingBellReturningStrength { get; set; }
-
-        #endregion
-
-        #region Shock stick
-
-        internal static ConfigEntry<bool> ShockStickEnabled { get; set; }
-        internal static ConfigEntry<float> ShockStickDuration { get; set; }
-        internal static ConfigEntry<float> ShockStickStrength { get; set; }
-
-        #endregion
+            internal static class Traveling
+            {
+                internal static ConfigEntry<bool> Enabled { get; set; }
+                internal static ConfigEntry<float> Duration { get; set; }
+                internal static ConfigEntry<float> Strength { get; set; }
+            }
+        }
 
         static Config()
         {
             ConfigFile = new ConfigFile(Paths.ConfigPath + "\\ViralTremors.cfg", true);
 
-            ServerUri = ConfigFile.Bind(
-                "Devices",
-                "Server Uri",
-                "ws://localhost:12345",
-                "URI of the Intiface server."
-            );
+            ServerUri = ConfigFile.Bind("Devices", "Server Uri", "ws://localhost:12345", "URI of the Intiface server.");
 
-            #region Player stuff
+            #region Player binding
 
-            DamageTakenEnabled =
-                ConfigFile.Bind("Vibrations.Damage", "Enabled", true, "Vibrate when you receive damage");
-            DamageTakenDuration =
-                ConfigFile.Bind("Vibrations.Damage", "Duration", 1.0f, "Length of time to vibrate for");
+            #region Damage Taken binding
 
-            DeathEnabled = ConfigFile.Bind("Vibrations.Death", "Enabled", true, "Vibrate when you die");
-            DeathDuration = ConfigFile.Bind("Vibrations.Death", "Duration", 1.0f, "Length of time to vibrate for");
-            DeathStrength = ConfigFile.Bind("Vibrations.Death", "Strength", 1.0f,
-                "The strength of the vibration (value from 0.0 to 1.0)");
+            Player.DamageTaken.Enabled = ConfigFile.Bind(new ConfigDefinition("Vibrations.Damage", "Enabled"), true,
+                new ConfigDescription("Vibrate when you receive damage"));
+            Player.DamageTaken.Duration = ConfigFile.Bind(new ConfigDefinition("Vibrations.Damage", "Duration"), 1.0f,
+                new ConfigDescription("Length of time to vibrate for"));
 
-            ReviveEnabled = ConfigFile.Bind("Vibrations.Revive", "Enabled", true, "Vibrate when you get revived");
-            ReviveDuration = ConfigFile.Bind("Vibrations.Revive", "Duration", 1.0f, "Length of time to vibrate for");
-            ReviveStrength = ConfigFile.Bind("Vibrations.Revive", "Strength", 1.0f,
-                "The strength of the vibration (value from 0.0 to 1.0)");
-
-            HealEnabled = ConfigFile.Bind("Vibrations.Heal", "Enabled", true, "Vibrate when you get hugged");
-            HealDuration = ConfigFile.Bind("Vibrations.Heal", "Duration", 1.0f, "Length of time to vibrate for");
-            HealStrength = ConfigFile.Bind("Vibrations.Heal", "Strength", 1.0f,
-                "The strength of the vibration (value from 0.0 to 1.0)");
             #endregion
 
-            #region Enemy stuff
+            #region Death binding
 
-            #region Weeping bot
+            Player.Death.Enabled = ConfigFile.Bind(new ConfigDefinition("Vibrations.Death", "Enabled"), true,
+                new ConfigDescription("Vibrate when you die"));
+            Player.Death.Duration = ConfigFile.Bind(new ConfigDefinition("Vibrations.Death", "Duration"), 1.0f,
+                new ConfigDescription("Length of time to vibrate for"));
+            Player.Death.Strength = ConfigFile.Bind(new ConfigDefinition("Vibrations.Death", "Strength"), 1.0f,
+                new ConfigDescription("The strength of the vibration (value from 0.0 to 1.0)"));
 
-            WeepingEnemyCaptureEnabled = ConfigFile.Bind("Vibrations.WeepingEnemy.Capture", "Enabled", true,
-                "Vibrate when you get captured by the weeping enemy");
-            WeepingEnemyCaptureDuration = ConfigFile.Bind("Vibrations.WeepingEnemy.Capture", "Duration", 1.0f,
-                "Length of time to vibrate for");
-            WeepingEnemyCaptureStrength = ConfigFile.Bind("Vibrations.WeepingEnemy.Capture", "Strength", 1.0f,
-                "The strength of the vibration (value from 0.0 to 1.0)");
+            #endregion
+
+            #region Revive binding
+
+            Player.Revive.Enabled = ConfigFile.Bind(new ConfigDefinition("Vibrations.Revive", "Enabled"), true,
+                new ConfigDescription("Vibrate when you get revived"));
+            Player.Revive.Duration = ConfigFile.Bind(new ConfigDefinition("Vibrations.Revive", "Duration"), 1.0f,
+                new ConfigDescription("Length of time to vibrate for"));
+            Player.Revive.Strength = ConfigFile.Bind(new ConfigDefinition("Vibrations.Revive", "Strength"), 1.0f,
+                new ConfigDescription("The strength of the vibration (value from 0.0 to 1.0)"));
+
+            #endregion
+
+            #region Heal binding
+
+            Player.Heal.Enabled = ConfigFile.Bind(new ConfigDefinition("Vibrations.Heal", "Enabled"), true,
+                new ConfigDescription("Vibrate when you get hugged"));
+            Player.Heal.Duration = ConfigFile.Bind(new ConfigDefinition("Vibrations.Heal", "Duration"), 1.0f,
+                new ConfigDescription("Length of time to vibrate for"));
+            Player.Heal.Strength = ConfigFile.Bind(new ConfigDefinition("Vibrations.Heal", "Strength"), 1.0f,
+                new ConfigDescription("The strength of the vibration (value from 0.0 to 1.0)"));
+
+            #endregion
+
+            #endregion
+
+            #region Enemy binding
+
+            #region Weeping binding
+
+            Enemy.Weeping.Capture.Enabled =
+                ConfigFile.Bind(new ConfigDefinition("Vibrations.WeepingEnemy.Capture", "Enabled"), true,
+                    new ConfigDescription("Vibrate when you get captured by the weeping enemy"));
+            Enemy.Weeping.Capture.Duration =
+                ConfigFile.Bind(new ConfigDefinition("Vibrations.WeepingEnemy.Capture", "Duration"), 1.0f,
+                    new ConfigDescription("Length of time to vibrate for"));
+            Enemy.Weeping.Capture.Strength =
+                ConfigFile.Bind(new ConfigDefinition("Vibrations.WeepingEnemy.Capture", "Strength"), 1.0f,
+                    new ConfigDescription("The strength of the vibration (value from 0.0 to 1.0)"));
 
             #endregion
 
@@ -112,33 +151,48 @@ namespace ViralTremors.Buttplug
 
             #region Diving Bell
 
-            DivingBellEnabled = ConfigFile.Bind("Vibrations.DivingBell", "Enabled", true,
-                "Whether or not to enable/disable diving bell vibrations");
-            DivingBellReturningEnabled = ConfigFile.Bind("Vibrations.DivingBell.Returning", "Enabled", true,
-                "Vibrate when you go to the surface");
-            DivingBellTravelingEnabled = ConfigFile.Bind("Vibrations.DivingBell.Travelling", "Enabled", true,
-                "Vibrate when you go to the underworld");
+            #region Traveling binding
 
-            DivingBellTravelingDuration = ConfigFile.Bind("Vibrations.DivingBell.Travelling", "Duration", 1.0f,
-                "Length of time to vibrate for");
-            DivingBellTravelingStrength = ConfigFile.Bind("Vibrations.DivingBell.Travelling", "Strength", 1.0f,
-                "The strength of the vibration (value from 0.0 to 1.0)");
-
-            DivingBellReturningDuration = ConfigFile.Bind("Vibrations.DivingBell.Returning", "Duration", 1.0f,
-                "Length of time to vibrate for");
-            DivingBellReturningStrength = ConfigFile.Bind("Vibrations.DivingBell.Returning", "Strength", 1.0f,
-                "The strength of the vibration (value from 0.0 to 1.0)");
+            DivingBell.Traveling.Enabled =
+                ConfigFile.Bind(new ConfigDefinition("Vibrations.DivingBell.Travelling", "Enabled"), true,
+                    new ConfigDescription("Vibrate when you go to the underworld"));
+            DivingBell.Traveling.Duration =
+                ConfigFile.Bind(new ConfigDefinition("Vibrations.DivingBell.Travelling", "Duration"), 1.0f,
+                    new ConfigDescription("Length of time to vibrate for"));
+            DivingBell.Traveling.Strength =
+                ConfigFile.Bind(new ConfigDefinition("Vibrations.DivingBell.Travelling", "Strength"), 1.0f,
+                    new ConfigDescription("The strength of the vibration (value from 0.0 to 1.0)"));
 
             #endregion
 
+            #region Returning binding
+
+            DivingBell.Returning.Enabled =
+                ConfigFile.Bind(new ConfigDefinition("Vibrations.DivingBell.Returning", "Enabled"), true,
+                    new ConfigDescription("Vibrate when you go to the surface"));
+            DivingBell.Returning.Duration =
+                ConfigFile.Bind(new ConfigDefinition("Vibrations.DivingBell.Returning", "Duration"), 1.0f,
+                    new ConfigDescription("Length of time to vibrate for"));
+            DivingBell.Returning.Strength =
+                ConfigFile.Bind(new ConfigDefinition("Vibrations.DivingBell.Returning", "Strength"), 1.0f,
+                    new ConfigDescription("The strength of the vibration (value from 0.0 to 1.0)"));
+
+            #endregion
+
+            #endregion
+
+            #region Items
+
             #region Shock Stick
 
-            ShockStickEnabled = ConfigFile.Bind("Vibrations.ShockStick", "Enabled", true,
-                "Vibrate when you shock something/someone");
-            ShockStickDuration =
-                ConfigFile.Bind("Vibrations.ShockStick", "Duration", 1.0f, "Length of time to vibrate for");
-            ShockStickStrength = ConfigFile.Bind("Vibrations.ShockStick", "Strength", 1.0f,
-                "The strength of the vibration (value from 0.0 to 1.0)");
+            Item.ShockStick.Enabled = ConfigFile.Bind(new ConfigDefinition("Vibrations.ShockStick", "Enabled"), true,
+                new ConfigDescription("Vibrate when you shock something/someone"));
+            Item.ShockStick.Duration = ConfigFile.Bind(new ConfigDefinition("Vibrations.ShockStick", "Duration"), 1.0f,
+                new ConfigDescription("Length of time to vibrate for"));
+            Item.ShockStick.Strength = ConfigFile.Bind(new ConfigDefinition("Vibrations.ShockStick", "Strength"), 1.0f,
+                new ConfigDescription("The strength of the vibration (value from 0.0 to 1.0)"));
+
+            #endregion
 
             #endregion
         }

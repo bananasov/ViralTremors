@@ -14,10 +14,10 @@ public class Bot_WeepingPatches
     {
         ViralTremors.Mls.LogDebug($"GoUnderground got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.WeepingEnemyCaptureEnabled.Value)
+        if (ViralTremors.DeviceManager.IsConnected() && Config.Enemy.Weeping.Capture.Enabled.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.WeepingEnemyCaptureStrength.Value,
-                Config.WeepingEnemyCaptureDuration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Enemy.Weeping.Capture.Strength.Value,
+                Config.Enemy.Weeping.Capture.Duration.Value);
         }
     }
 }

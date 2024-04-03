@@ -16,10 +16,10 @@ public class ShockStickPatches
 
         ViralTremors.Mls.LogDebug($"OnShock got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.ShockStickEnabled.Value)
+        if (ViralTremors.DeviceManager.IsConnected() && Config.Item.ShockStick.Enabled.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.ShockStickStrength.Value,
-                Config.ShockStickDuration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Item.ShockStick.Strength.Value,
+                Config.Item.ShockStick.Duration.Value);
         }
     }
 }

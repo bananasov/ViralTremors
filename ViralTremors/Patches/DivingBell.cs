@@ -12,11 +12,11 @@ public class DivingBellPatches
     {
         ViralTremors.Mls.LogDebug($"GoUnderground got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.DivingBellEnabled.Value &&
-            Config.DivingBellTravelingEnabled.Value)
+        if (ViralTremors.DeviceManager.IsConnected() &&
+            Config.DivingBell.Traveling.Enabled.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.DivingBellTravelingStrength.Value,
-                Config.DivingBellTravelingDuration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.DivingBell.Traveling.Strength.Value,
+                Config.DivingBell.Traveling.Duration.Value);
         }
     }
 
@@ -27,11 +27,11 @@ public class DivingBellPatches
     {
         ViralTremors.Mls.LogDebug($"GoToSurface got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.DivingBellEnabled.Value &&
-            Config.DivingBellReturningEnabled.Value)
+        if (ViralTremors.DeviceManager.IsConnected() &&
+            Config.DivingBell.Returning.Enabled.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.DivingBellTravelingStrength.Value,
-                Config.DivingBellReturningDuration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.DivingBell.Traveling.Strength.Value,
+                Config.DivingBell.Returning.Duration.Value);
         }
     }
 }
