@@ -15,14 +15,14 @@ buttplug.io integration for Content Warning
 
 #### Manual
 - Install BepInEx (see [BepInEx Installation Guide](https://docs.bepinex.dev/articles/user_guide/installation/index.html))
-- Launch Lethal Company once with BepInEx installed to ensure that its working and needed folders are present
-- Navigate to your Lethal Company install directory and go to `./BepInEx/plugins`
+- Launch Content Warning once with BepInEx installed to ensure that its working and needed folders are present
+- Navigate to your Content Warning install directory and go to `./BepInEx/plugins`
 - Download the mod and unzip it in the installation directory
 
 ### Usage
 - Open Intiface Central (or Engine if you know how to use that)
 - Start it via the big play button
-- Launch Lethal Company with the mod installed
+- Launch Content Warning with the mod installed
   - If it doesn't work, go to Intiface settings and enable `Listen on all network interfaces` in the server settings
 
 

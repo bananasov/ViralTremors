@@ -20,6 +20,7 @@ pdb_file := PROJECT_NAME + ".pdb"
 bepinex_plugin_directory := CONTENT_DIRECTORY / "BepInEx" / "plugins"
 
 version := `git cliff --unreleased --bump --context | jq -r .[0].version`
+unfucked_version := replace(version, "v", "")
 
 # Build the project
 build *FLAGS:
@@ -32,7 +33,7 @@ package: (build "-c Release")
     mkdir "Thunderstore/BepInEx/plugins"
     cp "{{release_directory / dll_file}}" "Thunderstore/BepInEx/plugins/"
     cp "{{release_directory / pdb_file}}" "Thunderstore/BepInEx/plugins/"
-    jq --raw-output '.version_number = "{{trim_end(version)}}"' "Thunderstore/manifest.json" > "Thunderstore/manifest.json.tmp"
+    jq --raw-output '.version_number = "{{trim_end(unfucked_version)}}"' "Thunderstore/manifest.json" > "Thunderstore/manifest.json.tmp"
     rm "Thunderstore/manifest.json"
     mv "Thunderstore/manifest.json.tmp" "Thunderstore/manifest.json"
     7z a {{PROJECT_NAME}}.zip "./Thunderstore/*"
