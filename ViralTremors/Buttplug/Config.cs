@@ -21,7 +21,10 @@ namespace ViralTremors.Buttplug
         internal static ConfigEntry<bool> ReviveEnabled { get; set; }
         internal static ConfigEntry<float> ReviveDuration { get; set; }
         internal static ConfigEntry<float> ReviveStrength { get; set; }
-
+        
+        internal static ConfigEntry<bool> HealEnabled { get; set; }
+        internal static ConfigEntry<float> HealDuration { get; set; }
+        internal static ConfigEntry<float> HealStrength { get; set; }
         #endregion
 
         #region Enemy related config entries
@@ -86,6 +89,10 @@ namespace ViralTremors.Buttplug
             ReviveStrength = ConfigFile.Bind("Vibrations.Revive", "Strength", 1.0f,
                 "The strength of the vibration (value from 0.0 to 1.0)");
 
+            HealEnabled = ConfigFile.Bind("Vibrations.Heal", "Enabled", true, "Vibrate when you get hugged");
+            HealDuration = ConfigFile.Bind("Vibrations.Heal", "Duration", 1.0f, "Length of time to vibrate for");
+            HealStrength = ConfigFile.Bind("Vibrations.Heal", "Strength", 1.0f,
+                "The strength of the vibration (value from 0.0 to 1.0)");
             #endregion
 
             #region Enemy stuff

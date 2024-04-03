@@ -55,4 +55,21 @@ internal static class PlayerPatches
                 Config.ReviveDuration.Value);
         }
     }
+
+    [HarmonyPatch(typeof(Player), "Heal")]
+    [HarmonyPostfix]
+    // ReSharper disable once InconsistentNaming
+    private static void Heal(Player __instance)
+    {
+        if (!__instance.IsLocal)
+            return;
+
+        ViralTremors.Mls.LogDebug($"Heal got called");
+
+        if (ViralTremors.DeviceManager.IsConnected() && Config.HealEnabled.Value)
+        {
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.HealStrength.Value,
+                Config.HealDuration.Value);
+        }
+    }
 }
