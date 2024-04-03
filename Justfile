@@ -45,8 +45,7 @@ copy:
 
 # Removes the DLL files from the BepInEx install
 clean:
-    rm "{{bepinex_plugin_directory / dll_file}}"
-    rm "{{bepinex_plugin_directory / pdb_file}}"
+    rm "{{bepinex_plugin_directory / "*"}}"
 
 _rm-dir-windows DIR:
     rm {{DIR}} -Recurse -Force -Confirm:$false
