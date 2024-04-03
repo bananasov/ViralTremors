@@ -28,7 +28,7 @@ build *FLAGS:
 
 # Packages the files for Thunderstore
 package: (build "-c Release")
-    git cliff --bump --exclude-path "Thunderstore/*" -o "Thunderstore/CHANGELOG.md"
+    git cliff --unreleased --bump --exclude-path "Thunderstore/*" --prepend .\Thunderstore\CHANGELOG.md
 
     mkdir "Thunderstore/BepInEx/plugins"
     cp "{{release_directory / dll_file}}" "Thunderstore/BepInEx/plugins/"
