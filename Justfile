@@ -37,7 +37,7 @@ package: (build "-c Release")
     rm "Thunderstore/manifest.json"
     mv "Thunderstore/manifest.json.tmp" "Thunderstore/manifest.json"
     7z a {{PROJECT_NAME}}.zip "./Thunderstore/*"
-    rm "Thunderstore/BepInEx"
+    just _rm-dir-{{os_family()}} "Thunderstore/BepInEx"
 
 # Copies over the built DLLs over to the BepInEx install
 copy:
@@ -48,3 +48,8 @@ copy:
 clean:
     rm "{{bepinex_plugin_directory / dll_file}}"
     rm "{{bepinex_plugin_directory / pdb_file}}"
+
+_rm-dir-windows DIR:
+    rm {{DIR}} -Recurse -Force -Confirm:$false
+_rm-dir-unix DIR:
+    rm -r {{DIR}}
