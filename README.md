@@ -8,5 +8,6 @@ buttplug.io integration for Content Warning
 - Vibrate when you get revived
 - Vibrate when you get captured by a weeping.
 - Vibrate when you go/return to/from the underworld
-- Vibrate when you shock somethign
+- Vibrate when you shock something
 
+All of these are configurable and the config file can be found in the `BepInEx/config` directory under the name `ViralTremors.cfg`.
