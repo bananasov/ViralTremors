@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 ---
+## [0.1.1](https://github.com/bananasov/LethalVibrations/compare/v0.1.0..v0.1.1) - 2024-04-03
+
+### Bug Fixes
+
+- Fix incorrect game name and grammar in READMEs - ([bc6c382](https://github.com/bananasov/LethalVibrations/commit/bc6c382d712f6399f78e37b962ac13e16e2f8ce0)) - sovnya
+- Fix justfile being incorrect as all hell - ([d508a94](https://github.com/bananasov/LethalVibrations/commit/d508a9441018d06f00db0657822faa893bb1b582)) - sovnya
+
+---
+## [0.1.1](https://github.com/bananasov/LethalVibrations/compare/v0.1.0..v0.1.1) - 2024-04-03
+
+### Bug Fixes
+
+- Fix incorrect game name and grammar in READMEs - ([bc6c382](https://github.com/bananasov/LethalVibrations/commit/bc6c382d712f6399f78e37b962ac13e16e2f8ce0)) - sovnya
+
+### Miscellaneous Chores
+
+- Bump version - ([42c41c8](https://github.com/bananasov/LethalVibrations/commit/42c41c8347639450c79b8500d22f2ed216d182fe)) - sovnya
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
+
+---
 ## [0.1.0] - 2024-04-03
 
 ### Bug Fixes
