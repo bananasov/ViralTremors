@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 ---
+## [0.3.0](https://github.com/bananasov/LethalVibrations/compare/v0.2.0..v0.3.0) - 2024-04-04
+
+### Features
+
+- Add money added vibration and config - ([92a013d](https://github.com/bananasov/LethalVibrations/commit/92a013d77d9103dd0d15d8779b1f35dadaba0c21)) - sovnya
+
+---
 ## [0.2.0](https://github.com/bananasov/LethalVibrations/compare/v0.1.1..v0.2.0) - 2024-04-03
 
 ### Bug Fixes
