@@ -4,3 +4,4 @@ obj/
 /libs/
 FodyWeavers.xsd
 *.zip
+*.user
