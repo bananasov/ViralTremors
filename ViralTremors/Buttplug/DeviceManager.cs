@@ -18,7 +18,7 @@ namespace ViralTremors.Buttplug
         {
             ConnectedDevices = new List<ButtplugClientDevice>();
             ButtplugClient = new ButtplugClient(clientName);
-            ViralTremors.Mls.LogInfo("BP client created for " + clientName);
+            ViralTremors.Mls?.LogInfo("BP client created for " + clientName);
             ButtplugClient.DeviceAdded += HandleDeviceAdded;
             ButtplugClient.DeviceRemoved += HandleDeviceRemoved;
         }
@@ -31,15 +31,15 @@ namespace ViralTremors.Buttplug
 
             try
             {
-                ViralTremors.Mls.LogInfo($"Attempting to connect to Intiface server at {Config.ServerUri.Value}");
+                ViralTremors.Mls?.LogInfo($"Attempting to connect to Intiface server at {Config.ServerUri.Value}");
                 await ButtplugClient.ConnectAsync(new ButtplugWebsocketConnector(new Uri(Config.ServerUri.Value)));
-                ViralTremors.Mls.LogInfo("Connection successful. Beginning scan for devices");
+                ViralTremors.Mls?.LogInfo("Connection successful. Beginning scan for devices");
                 await ButtplugClient.StartScanningAsync();
             }
             catch (ButtplugException exception)
             {
-                ViralTremors.Mls.LogError($"Attempt to connect to devices failed. Ensure Intiface is running and attempt to reconnect from the 'Devices' section in the mod's in-game settings.");
-                ViralTremors.Mls.LogDebug($"ButtplugIO error occured while connecting devices: {exception}");
+                ViralTremors.Mls?.LogError($"Attempt to connect to devices failed. Ensure Intiface is running and attempt to reconnect from the 'Devices' section in the mod's in-game settings.");
+                ViralTremors.Mls?.LogDebug($"ButtplugIO error occured while connecting devices: {exception}");
             }
         }
 
@@ -84,11 +84,11 @@ namespace ViralTremors.Buttplug
         {
             if (!IsVibratableDevice(args.Device))
             {
-                ViralTremors.Mls.LogInfo($"{args.Device.Name} was detected but ignored due to it not being vibratable.");
+                ViralTremors.Mls?.LogInfo($"{args.Device.Name} was detected but ignored due to it not being vibratable.");
                 return;
             }
 
-            ViralTremors.Mls.LogInfo($"{args.Device.Name} connected to client {ButtplugClient.Name}");
+            ViralTremors.Mls?.LogInfo($"{args.Device.Name} connected to client {ButtplugClient.Name}");
             ConnectedDevices.Add(args.Device);
         }
 
@@ -96,7 +96,7 @@ namespace ViralTremors.Buttplug
         {
             if (!IsVibratableDevice(args.Device)) { return; }
 
-            ViralTremors.Mls.LogInfo($"{args.Device.Name} disconnected from client {ButtplugClient.Name}");
+            ViralTremors.Mls?.LogInfo($"{args.Device.Name} disconnected from client {ButtplugClient.Name}");
             ConnectedDevices.Remove(args.Device);
         }
 

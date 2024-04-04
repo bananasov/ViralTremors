@@ -12,12 +12,12 @@ public class Bot_WeepingPatches
     // ReSharper disable once InconsistentNaming
     private static void TryCapturePlayer(Bot_Weeping __instance)
     {
-        ViralTremors.Mls.LogDebug($"GoUnderground got called");
+        ViralTremors.Mls?.LogDebug($"GoUnderground got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.Enemy.Weeping.Capture.Enabled.Value)
+        if (ViralTremors.DeviceManager!.IsConnected() && Config.Enemy.Weeping.Capture.Enabled!.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Enemy.Weeping.Capture.Strength.Value,
-                Config.Enemy.Weeping.Capture.Duration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Enemy.Weeping.Capture.Strength!.Value,
+                Config.Enemy.Weeping.Capture.Duration!.Value);
         }
     }
 }

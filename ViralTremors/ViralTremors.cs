@@ -8,8 +8,8 @@ namespace ViralTremors
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
     public class ViralTremors : BaseUnityPlugin
     {
-        internal static DeviceManager DeviceManager { get; private set; }
-        internal static ManualLogSource Mls { get; private set; }
+        internal static DeviceManager? DeviceManager { get; private set; } 
+        internal static ManualLogSource? Mls { get; private set; }
 
         private void Awake()
         {

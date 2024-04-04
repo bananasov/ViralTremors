@@ -13,29 +13,29 @@ namespace ViralTremors.Buttplug
         {
             internal static class DamageTaken
             {
-                internal static ConfigEntry<bool> Enabled { get; set; }
-                internal static ConfigEntry<float> Duration { get; set; }
+                internal static ConfigEntry<bool>? Enabled { get; set; }
+                internal static ConfigEntry<float>? Duration { get; set; }
             }
 
             internal static class Death
             {
-                internal static ConfigEntry<bool> Enabled { get; set; }
-                internal static ConfigEntry<float> Duration { get; set; }
-                internal static ConfigEntry<float> Strength { get; set; }
+                internal static ConfigEntry<bool>? Enabled { get; set; }
+                internal static ConfigEntry<float>? Duration { get; set; }
+                internal static ConfigEntry<float>? Strength { get; set; }
             }
 
             internal static class Revive
             {
-                internal static ConfigEntry<bool> Enabled { get; set; }
-                internal static ConfigEntry<float> Duration { get; set; }
-                internal static ConfigEntry<float> Strength { get; set; }
+                internal static ConfigEntry<bool>? Enabled { get; set; }
+                internal static ConfigEntry<float>? Duration { get; set; }
+                internal static ConfigEntry<float>? Strength { get; set; }
             }
 
             internal static class Heal
             {
-                internal static ConfigEntry<bool> Enabled { get; set; }
-                internal static ConfigEntry<float> Duration { get; set; }
-                internal static ConfigEntry<float> Strength { get; set; }
+                internal static ConfigEntry<bool>? Enabled { get; set; }
+                internal static ConfigEntry<float>? Duration { get; set; }
+                internal static ConfigEntry<float>? Strength { get; set; }
             }
         }
 
@@ -45,9 +45,9 @@ namespace ViralTremors.Buttplug
             {
                 internal static class Capture
                 {
-                    internal static ConfigEntry<bool> Enabled { get; set; }
-                    internal static ConfigEntry<float> Duration { get; set; }
-                    internal static ConfigEntry<float> Strength { get; set; }
+                    internal static ConfigEntry<bool>? Enabled { get; set; }
+                    internal static ConfigEntry<float>? Duration { get; set; }
+                    internal static ConfigEntry<float>? Strength { get; set; }
                 }
             }
         }
@@ -56,9 +56,9 @@ namespace ViralTremors.Buttplug
         {
             internal static class ShockStick
             {
-                internal static ConfigEntry<bool> Enabled { get; set; }
-                internal static ConfigEntry<float> Duration { get; set; }
-                internal static ConfigEntry<float> Strength { get; set; }
+                internal static ConfigEntry<bool>? Enabled { get; set; }
+                internal static ConfigEntry<float>? Duration { get; set; }
+                internal static ConfigEntry<float>? Strength { get; set; }
             }
         }
 
@@ -66,24 +66,24 @@ namespace ViralTremors.Buttplug
         {
             internal static class Returning
             {
-                internal static ConfigEntry<bool> Enabled { get; set; }
-                internal static ConfigEntry<float> Duration { get; set; }
-                internal static ConfigEntry<float> Strength { get; set; }
+                internal static ConfigEntry<bool>? Enabled { get; set; }
+                internal static ConfigEntry<float>? Duration { get; set; }
+                internal static ConfigEntry<float>? Strength { get; set; }
             }
 
             internal static class Traveling
             {
-                internal static ConfigEntry<bool> Enabled { get; set; }
-                internal static ConfigEntry<float> Duration { get; set; }
-                internal static ConfigEntry<float> Strength { get; set; }
+                internal static ConfigEntry<bool>? Enabled { get; set; }
+                internal static ConfigEntry<float>? Duration { get; set; }
+                internal static ConfigEntry<float>? Strength { get; set; }
             }
         }
 
         internal static class MoneyAdded
         {
-            internal static ConfigEntry<bool> Enabled { get; set; }
-            internal static ConfigEntry<float> Duration { get; set; }
-            internal static ConfigEntry<float> Strength { get; set; }
+            internal static ConfigEntry<bool>? Enabled { get; set; }
+            internal static ConfigEntry<float>? Duration { get; set; }
+            internal static ConfigEntry<float>? Strength { get; set; }
         }
 
         static Config()
@@ -209,7 +209,7 @@ namespace ViralTremors.Buttplug
                 new ConfigDescription("Vibrate when you get money"));
             MoneyAdded.Duration = ConfigFile.Bind(new ConfigDefinition("Vibrations.MoneyAdded", "Duration"), 1.0f,
                 new ConfigDescription("Length of time to vibrate for"));
-            MoneyAdded.Strength = ConfigFile.Bind(new ConfigDefinition("Vibrations.MoneyAdded", "Enabled"), 1.0f,
+            MoneyAdded.Strength = ConfigFile.Bind(new ConfigDefinition("Vibrations.MoneyAdded", "Strength"), 1.0f,
                 new ConfigDescription("The strength of the vibration (value from 0.0 to 1.0)"));
 
             #endregion

@@ -13,12 +13,12 @@ internal static class PlayerPatches
         if (!__instance.IsLocal)
             return;
 
-        ViralTremors.Mls.LogDebug($"TakeDamage got called: {damage} ({damage / 100f})");
+        ViralTremors.Mls?.LogDebug($"TakeDamage got called: {damage} ({damage / 100f})");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.Player.DamageTaken.Enabled.Value)
+        if (ViralTremors.DeviceManager!.IsConnected() && Config.Player.DamageTaken.Enabled!.Value)
         {
             ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration((damage / 100f),
-                Config.Player.DamageTaken.Duration.Value);
+                Config.Player.DamageTaken.Duration!.Value);
         }
     }
 
@@ -30,12 +30,12 @@ internal static class PlayerPatches
         if (!__instance.IsLocal)
             return;
 
-        ViralTremors.Mls.LogDebug($"Die got called");
+        ViralTremors.Mls?.LogDebug($"Die got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.Player.Death.Enabled.Value)
+        if (ViralTremors.DeviceManager!.IsConnected() && Config.Player.Death.Enabled!.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Player.Death.Strength.Value,
-                Config.Player.Death.Duration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Player.Death.Strength!.Value,
+                Config.Player.Death.Duration!.Value);
         }
     }
 
@@ -47,12 +47,12 @@ internal static class PlayerPatches
         if (!__instance.IsLocal)
             return;
 
-        ViralTremors.Mls.LogDebug($"CallRevive got called");
+        ViralTremors.Mls?.LogDebug($"CallRevive got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.Player.Revive.Enabled.Value)
+        if (ViralTremors.DeviceManager!.IsConnected() && Config.Player.Revive.Enabled!.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Player.Revive.Strength.Value,
-                Config.Player.Revive.Duration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Player.Revive.Strength!.Value,
+                Config.Player.Revive.Duration!.Value);
         }
     }
 
@@ -64,12 +64,12 @@ internal static class PlayerPatches
         if (!__instance.IsLocal)
             return;
 
-        ViralTremors.Mls.LogDebug($"Heal got called");
+        ViralTremors.Mls?.LogDebug($"Heal got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.Player.Heal.Enabled.Value)
+        if (ViralTremors.DeviceManager!.IsConnected() && Config.Player.Heal.Enabled!.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Player.Heal.Strength.Value,
-                Config.Player.Heal.Duration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Player.Heal.Strength!.Value,
+                Config.Player.Heal.Duration!.Value);
         }
     }
 }

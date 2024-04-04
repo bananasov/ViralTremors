@@ -14,12 +14,12 @@ public class ShockStickPatches
     {
         if (!__instance.isHeldByMe) return;
 
-        ViralTremors.Mls.LogDebug($"OnShock got called");
+        ViralTremors.Mls?.LogDebug($"OnShock got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() && Config.Item.ShockStick.Enabled.Value)
+        if (ViralTremors.DeviceManager!.IsConnected() && Config.Item.ShockStick.Enabled!.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Item.ShockStick.Strength.Value,
-                Config.Item.ShockStick.Duration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.Item.ShockStick.Strength!.Value,
+                Config.Item.ShockStick.Duration!.Value);
         }
     }
 }

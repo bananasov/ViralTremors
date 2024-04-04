@@ -10,13 +10,13 @@ public class DivingBellPatches
     // ReSharper disable once InconsistentNaming
     private static void GoUnderground(DivingBell __instance)
     {
-        ViralTremors.Mls.LogDebug($"GoUnderground got called");
+        ViralTremors.Mls?.LogDebug($"GoUnderground got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() &&
-            Config.DivingBell.Traveling.Enabled.Value)
+        if (ViralTremors.DeviceManager!.IsConnected() &&
+            Config.DivingBell.Traveling.Enabled!.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.DivingBell.Traveling.Strength.Value,
-                Config.DivingBell.Traveling.Duration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.DivingBell.Traveling.Strength!.Value,
+                Config.DivingBell.Traveling.Duration!.Value);
         }
     }
 
@@ -25,13 +25,13 @@ public class DivingBellPatches
     // ReSharper disable once InconsistentNaming
     private static void GoToSurface(DivingBell __instance)
     {
-        ViralTremors.Mls.LogDebug($"GoToSurface got called");
+        ViralTremors.Mls?.LogDebug($"GoToSurface got called");
 
-        if (ViralTremors.DeviceManager.IsConnected() &&
-            Config.DivingBell.Returning.Enabled.Value)
+        if (ViralTremors.DeviceManager!.IsConnected() &&
+            Config.DivingBell.Returning.Enabled!.Value)
         {
-            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.DivingBell.Traveling.Strength.Value,
-                Config.DivingBell.Returning.Duration.Value);
+            ViralTremors.DeviceManager.VibrateConnectedDevicesWithDuration(Config.DivingBell.Traveling.Strength!.Value,
+                Config.DivingBell.Returning.Duration!.Value);
         }
     }
 }
