@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViralTremors", "ViralTremors\ViralTremors.csproj", "{DC6F9465-7F38-46FF-9B4B-2DAF9425DE74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViralTremors", "ViralTremors\ViralTremors.csproj", "{68E853C9-4786-4FBD-A30D-D54BCE7055B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DC6F9465-7F38-46FF-9B4B-2DAF9425DE74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC6F9465-7F38-46FF-9B4B-2DAF9425DE74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC6F9465-7F38-46FF-9B4B-2DAF9425DE74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC6F9465-7F38-46FF-9B4B-2DAF9425DE74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68E853C9-4786-4FBD-A30D-D54BCE7055B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68E853C9-4786-4FBD-A30D-D54BCE7055B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68E853C9-4786-4FBD-A30D-D54BCE7055B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68E853C9-4786-4FBD-A30D-D54BCE7055B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

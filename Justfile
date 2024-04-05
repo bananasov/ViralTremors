@@ -28,8 +28,6 @@ package: (build "-c Release")
     git cliff --unreleased --bump --exclude-path "Thunderstore/*" --prepend .\Thunderstore\CHANGELOG.md
 
     mkdir "Thunderstore/BepInEx/plugins"
-    rm "{{release_directory / "Assembly-CSharp.dll"}}"
-    rm "{{release_directory / "Newtonsoft.Json.dll"}}"
     cp "{{release_directory / "*"}}" "Thunderstore/BepInEx/plugins/"
     jq --raw-output '.version_number = "{{trim_end(unfucked_version)}}"' "Thunderstore/manifest.json" > "Thunderstore/manifest.json.tmp"
     rm "Thunderstore/manifest.json"
@@ -39,8 +37,6 @@ package: (build "-c Release")
 
 # Copies over the built DLLs over to the BepInEx install
 copy:
-    rm "{{built_files_directory / "Assembly-CSharp.dll"}}"
-    rm "{{built_files_directory / "Newtonsoft.Json.dll"}}"
     cp "{{built_files_directory / "*"}}" "{{bepinex_plugin_directory}}"
 
 # Removes the DLL files from the BepInEx install

@@ -1,31 +1,38 @@
-﻿using BepInEx;
+using BepInEx;
 using BepInEx.Logging;
-using HarmonyLib;
 using ViralTremors.Buttplug;
+using ViralTremors.Hooks;
 
-namespace ViralTremors
+namespace ViralTremors;
+
+[BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
+public class ViralTremors : BaseUnityPlugin
 {
-    [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
-    public class ViralTremors : BaseUnityPlugin
+    public static ViralTremors Instance { get; private set; } = null!;
+    internal new static ManualLogSource Logger { get; private set; } = null!;
+    internal static DeviceManager DeviceManager { get; private set; } = null!;
+
+    private void Awake()
     {
-        internal static DeviceManager? DeviceManager { get; private set; } 
-        internal static ManualLogSource? Mls { get; private set; }
+        Logger = base.Logger;
+        Instance = this;
 
-        private void Awake()
-        {
-            Mls = Logger;
+        DeviceManager = new DeviceManager("ViralTremors");
+        DeviceManager.ConnectDevices();
 
-            DeviceManager = new DeviceManager("ViralTremors");
-            DeviceManager.ConnectDevices();
+        Hook();
 
-            var harmony = new Harmony(PluginInfo.PLUGIN_GUID);
-            harmony.PatchAll(typeof(Patches.PlayerPatches));
-            harmony.PatchAll(typeof(Patches.Bot_WeepingPatches));
-            harmony.PatchAll(typeof(Patches.DivingBellPatches));
-            harmony.PatchAll(typeof(Patches.ShockStickPatches));
-            harmony.PatchAll(typeof(Patches.RoomStatsHolderPatches));
+        Logger.LogInfo($"{MyPluginInfo.PLUGIN_GUID} v{MyPluginInfo.PLUGIN_VERSION} has loaded!");
+    }
 
-            Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} has loaded!");
-        }
+    private static void Hook()
+    {
+        WeepingEnemyPatches.Init();
+        DivingBellPatches.Init();
+        PlayerPatches.Init();
+        RoomStatsHolderPatches.Init();
+        ShockStickPatches.Init();
+        
+        Logger.LogInfo("Hooking finished");
     }
 }
