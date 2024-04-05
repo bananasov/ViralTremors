@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 ---
+## [1.1.0](https://github.com/bananasov/LethalVibrations/compare/v1.0.0..v1.1.0) - 2024-04-05
+
+### Bug Fixes
+
+- Fix justfile moving and packaging Newtonsoft JSON dll - ([d0604b6](https://github.com/bananasov/LethalVibrations/commit/d0604b6f1d20d2fba319164bdf26782ec5af9369)) - sovnya
+
+### Features
+
+- Add vibrate on jumpscare - ([db1c708](https://github.com/bananasov/LethalVibrations/commit/db1c708ad0058c4a1cd91bfbc1c51533726dcd03)) - sovnya
+
+---
 ## [1.0.0](https://github.com/bananasov/LethalVibrations/compare/v0.3.0..v1.0.0) - 2024-04-05
 
 ### Bug Fixes
