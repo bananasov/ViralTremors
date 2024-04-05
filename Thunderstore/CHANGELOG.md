@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 ---
+## [1.0.0](https://github.com/bananasov/LethalVibrations/compare/v0.3.0..v1.0.0) - 2024-04-05
+
+### Bug Fixes
+
+- Ignore every .user file - ([a6e8486](https://github.com/bananasov/LethalVibrations/commit/a6e8486b548913f5f8581ad28ecc3df4221d16d6)) - sovnya
+- Make the warning shut the hell up - ([df0afcc](https://github.com/bananasov/LethalVibrations/commit/df0afcc1d6c55708ad8f818b635e87c645b68670)) - sovnya
+
+### Refactoring
+
+-  [**breaking**]Rewrite the entire thing to use monomod - ([6bec29c](https://github.com/bananasov/LethalVibrations/commit/6bec29cdbd83e7fd702105c6f28496093d3df872)) - sovnya
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
+
+---
 ## [0.3.0](https://github.com/bananasov/LethalVibrations/compare/v0.2.0..v0.3.0) - 2024-04-04
 
 ### Features
