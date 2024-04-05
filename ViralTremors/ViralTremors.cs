@@ -32,6 +32,7 @@ public class ViralTremors : BaseUnityPlugin
         PlayerPatches.Init();
         RoomStatsHolderPatches.Init();
         ShockStickPatches.Init();
+        JumpScareSoundPatches.Init();
         
         Logger.LogInfo("Hooking finished");
     }

@@ -86,6 +86,13 @@ internal static class Config
         internal static ConfigEntry<float>? Strength { get; set; }
     }
 
+    internal static class Jumpscare
+    {
+        internal static ConfigEntry<bool>? Enabled { get; set; }
+        internal static ConfigEntry<float>? Duration { get; set; }
+        internal static ConfigEntry<float>? Strength { get; set; }
+    }
+
     static Config()
     {
         ConfigFile = new ConfigFile(Paths.ConfigPath + "\\ViralTremors.cfg", true);
@@ -210,6 +217,17 @@ internal static class Config
         MoneyAdded.Duration = ConfigFile.Bind(new ConfigDefinition("Vibrations.MoneyAdded", "Duration"), 1.0f,
             new ConfigDescription("Length of time to vibrate for"));
         MoneyAdded.Strength = ConfigFile.Bind(new ConfigDefinition("Vibrations.MoneyAdded", "Strength"), 1.0f,
+            new ConfigDescription("The strength of the vibration (value from 0.0 to 1.0)"));
+
+        #endregion
+
+        #region Jumpscares
+
+        Jumpscare.Enabled = ConfigFile.Bind(new ConfigDefinition("Vibrations.Jumpscare", "Enabled"), true,
+            new ConfigDescription("Vibrate when you get jumpscared"));
+        Jumpscare.Duration = ConfigFile.Bind(new ConfigDefinition("Vibrations.Jumpscare", "Duration"), 1.0f,
+            new ConfigDescription("Length of time to vibrate for"));
+        Jumpscare.Strength = ConfigFile.Bind(new ConfigDefinition("Vibrations.Jumpscare", "Strength"), 1.0f,
             new ConfigDescription("The strength of the vibration (value from 0.0 to 1.0)"));
 
         #endregion
