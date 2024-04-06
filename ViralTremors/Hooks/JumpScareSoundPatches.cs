@@ -1,11 +1,15 @@
 ﻿using ViralTremors.Buttplug;
+using ViralTremors.Utils;
 
 namespace ViralTremors.Hooks;
 
 public static class JumpScareSoundPatches
 {
+    [PatchInit]
     public static void Init()
     {
+        ViralTremors.Logger.LogInfo("Patching JumpScareSound functions.");
+        
         On.JumpScareSound.Scare += JumpScareSoundOnScare;
     }
 

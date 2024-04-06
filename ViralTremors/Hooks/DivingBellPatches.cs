@@ -1,11 +1,15 @@
 ﻿using ViralTremors.Buttplug;
+using ViralTremors.Utils;
 
 namespace ViralTremors.Hooks;
 
 public static class DivingBellPatches
 {
+    [PatchInit]
     public static void Init()
     {
+        ViralTremors.Logger.LogInfo("Patching DiveBell functions.");
+        
         On.DivingBell.GoToSurface += DivingBellOnGoToSurface;
         On.DivingBell.GoUnderground += DivingBellOnGoUnderground;
     }

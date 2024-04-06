@@ -1,11 +1,15 @@
 using ViralTremors.Buttplug;
+using ViralTremors.Utils;
 
 namespace ViralTremors.Hooks;
 
 public static class WeepingEnemyPatches
 {
+    [PatchInit]
     public static void Init()
     {
+        ViralTremors.Logger.LogInfo("Patching Bot_Weeping functions.");
+        
         On.Bot_Weeping.TryCapturePlayer += TryCapturePlayerPatch;
     }
 

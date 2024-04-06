@@ -1,7 +1,11 @@
+using System;
+using System.Reflection;
 using BepInEx;
 using BepInEx.Logging;
 using ViralTremors.Buttplug;
 using ViralTremors.Hooks;
+using ViralTremors.Utils;
+using Zorro.Core;
 
 namespace ViralTremors;
 
@@ -27,12 +31,12 @@ public class ViralTremors : BaseUnityPlugin
 
     private static void Hook()
     {
-        WeepingEnemyPatches.Init();
-        DivingBellPatches.Init();
-        PlayerPatches.Init();
-        RoomStatsHolderPatches.Init();
-        ShockStickPatches.Init();
-        JumpScareSoundPatches.Init();
+        ValueTuple<MethodInfo, Attribute>[] methodsWithAttribute = ReflectionUtility.GetMethodsWithAttribute<PatchInitAttribute>();
+        foreach (var valueTuple in methodsWithAttribute)
+        {
+            var method = valueTuple.Item1;
+            method.Invoke(null, Array.Empty<object>()); 
+        }
         
         Logger.LogInfo("Hooking finished");
     }

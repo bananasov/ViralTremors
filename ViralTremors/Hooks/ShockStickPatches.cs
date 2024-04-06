@@ -1,11 +1,15 @@
 ﻿using ViralTremors.Buttplug;
+using ViralTremors.Utils;
 
 namespace ViralTremors.Hooks;
 
 public static class ShockStickPatches
 {
+    [PatchInit]
     public static void Init()
     {
+        ViralTremors.Logger.LogInfo("Patching ShockStick functions.");
+        
         On.ShockStick.OnShock += ShockStickOnOnShock;
     }
 

@@ -1,11 +1,15 @@
 ﻿using ViralTremors.Buttplug;
+using ViralTremors.Utils;
 
 namespace ViralTremors.Hooks;
 
 public static class PlayerPatches
 {
+    [PatchInit]
     public static void Init()
     {
+        ViralTremors.Logger.LogInfo("Patching Player functions.");
+        
         On.Player.TakeDamage += PlayerOnTakeDamage;
         On.Player.Die += PlayerOnDie;
         On.Player.CallRevive += PlayerOnCallRevive;
