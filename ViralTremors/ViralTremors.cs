@@ -3,7 +3,6 @@ using System.Reflection;
 using BepInEx;
 using BepInEx.Logging;
 using ViralTremors.Buttplug;
-using ViralTremors.Hooks;
 using ViralTremors.Utils;
 using Zorro.Core;
 

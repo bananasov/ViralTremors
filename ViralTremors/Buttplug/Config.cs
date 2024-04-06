@@ -93,6 +93,13 @@ internal static class Config
         internal static ConfigEntry<float>? Strength { get; set; }
     }
 
+    internal static class BombExplosion
+    {
+        internal static ConfigEntry<bool>? Enabled { get; set; }
+        internal static ConfigEntry<float>? Duration { get; set; }
+        internal static ConfigEntry<float>? Strength { get; set; }
+    }
+
     static Config()
     {
         ConfigFile = new ConfigFile(Paths.ConfigPath + "\\ViralTremors.cfg", true);
@@ -228,6 +235,17 @@ internal static class Config
         Jumpscare.Duration = ConfigFile.Bind(new ConfigDefinition("Vibrations.Jumpscare", "Duration"), 1.0f,
             new ConfigDescription("Length of time to vibrate for"));
         Jumpscare.Strength = ConfigFile.Bind(new ConfigDefinition("Vibrations.Jumpscare", "Strength"), 1.0f,
+            new ConfigDescription("The strength of the vibration (value from 0.0 to 1.0)"));
+
+        #endregion
+
+        #region Bomb item explosion
+
+        BombExplosion.Enabled = ConfigFile.Bind(new ConfigDefinition("Vibrations.BombExplosion", "Enabled"), true,
+            new ConfigDescription("Vibrate when a bomb explodes"));
+        BombExplosion.Duration = ConfigFile.Bind(new ConfigDefinition("Vibrations.BombExplosion", "Duration"), 1.0f,
+            new ConfigDescription("Length of time to vibrate for"));
+        BombExplosion.Strength = ConfigFile.Bind(new ConfigDefinition("Vibrations.BombExplosion", "Strength"), 1.0f,
             new ConfigDescription("The strength of the vibration (value from 0.0 to 1.0)"));
 
         #endregion
