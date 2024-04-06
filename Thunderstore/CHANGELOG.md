@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 ---
+## [1.2.0](https://github.com/bananasov/LethalVibrations/compare/v1.1.0..v1.2.0) - 2024-04-06
+
+### Features
+
+- Use attributes to initialize patches - ([4bf6ab2](https://github.com/bananasov/LethalVibrations/commit/4bf6ab2320b95c180bd323358c1b69abf5374e09)) - sovnya
+- Add bomb explosion vibrations - ([4656bf8](https://github.com/bananasov/LethalVibrations/commit/4656bf8e5c16cc30306d4fa563ebc2bd73c10ef6)) - sovnya
+
+---
 ## [1.1.0](https://github.com/bananasov/LethalVibrations/compare/v1.0.0..v1.1.0) - 2024-04-05
 
 ### Bug Fixes
