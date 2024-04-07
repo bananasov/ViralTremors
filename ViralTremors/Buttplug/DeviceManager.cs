@@ -27,10 +27,7 @@ public class DeviceManager
 
     public async void ConnectDevices()
     {
-        if (ButtplugClient.Connected)
-        {
-            return;
-        }
+        if (ButtplugClient.Connected) return;
 
         try
         {
