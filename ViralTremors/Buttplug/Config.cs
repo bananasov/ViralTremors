@@ -257,7 +257,7 @@ internal static class Config
 
         #region Comment bindings
 
-        BombExplosion.Enabled = ConfigFile.Bind(new ConfigDefinition("Vibrations.Comments", "Enabled"), true,
+        Comments.Enabled = ConfigFile.Bind(new ConfigDefinition("Vibrations.Comments", "Enabled"), true,
             new ConfigDescription("Register a comment when your toy gets vibrated"));
 
         #endregion

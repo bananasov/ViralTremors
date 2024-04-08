@@ -6,7 +6,7 @@ using ViralTremors.Utils;
 
 namespace ViralTremors.Comments;
 
-public class CommentManager
+public static class CommentManager
 {
     public static void Initialize()
     {
