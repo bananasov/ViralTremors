@@ -52,12 +52,18 @@ public class VibeContentEvent : ContentEvent
     public float Strength;
     public float Duration;
 
-    public string[] VIBE_COMMENTS =
+    public static string[] VIBE_COMMENTS =
     {
         "Is <playername> using a vibrator!?",
         "Did <playername> just moan??",
         "Wow! Seems like <playername> is having a LOT of fun!",
         "Wish i was controlling their toy.",
         "Just banged <playername>.",
+        "Wow, mine doesnt have that kind of power, where do I buy one?",
+        "Has <playername> finished?",
+        "I hope <playername> is enjoying themselves.",
+        "I think <playername> is enjoying themselves a bit too much.",
+        "I think <playername> might be leaking",
+        "Did <playername> make a mess?"
     };
 }

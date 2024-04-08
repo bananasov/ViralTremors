@@ -35,6 +35,8 @@ public static class CommentManager
 
         if (player is null) return;
         if (!player.IsLocal) return;
+        // if (!player.IsMasterClient) return;
+        // ^ I do not know if this line is needed or not
 
         var componentInParent = new VibedContentProvider(e.Strength, e.Duration, player);
         ContentPolling.contentProviders.Add(componentInParent, 1);
