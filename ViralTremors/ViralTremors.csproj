@@ -41,6 +41,8 @@
         <Reference Include="Assembly-CSharp" HintPath="$(CW_REFERENCES)\Assembly-CSharp.dll" Private="False" />
         <Reference Include="Assembly-CSharp-firstpass" HintPath="$(CW_REFERENCES)\Assembly-CSharp-firstpass.dll" Private="False" />
         <Reference Include="Zorro.Core.Runtime" HintPath="$(CW_REFERENCES)\Zorro.Core.Runtime.dll" Private="False"/>
+        <Reference Include="PhotonUnityNetworking" HintPath="$(CW_REFERENCES)\PhotonUnityNetworking.dll" Private="False"/>
+        <Reference Include="PhotonRealtime" HintPath="$(CW_REFERENCES)\PhotonRealtime.dll" Private="False"/>
         
         <Reference Include="MMHOOK_Assembly-CSharp" HintPath="$(MMHOOK_REFERENCES)\MMHOOK_Assembly-CSharp.dll" Private="False" />
         <Reference Include="MMHOOK_Assembly-CSharp-firstpass" HintPath="$(MMHOOK_REFERENCES)\MMHOOK_Assembly-CSharp-firstpass.dll" Private="False" />
