@@ -6,17 +6,17 @@ namespace ViralTremors.Comments.Providers;
 
 public class VibedContentProvider : ContentProvider
 {
-    public VibedContentProvider(float strength, float duration, Player player)
+    public VibedContentProvider(float strength, float duration, Photon.Realtime.Player player)
     {
         _strength = strength;
         _duration = duration;
-        this.player = player;
+        _player = player;
     }
 
     public override void GetContent(List<ContentEventFrame> contentEvents, float seenAmount, Camera camera, float time)
     {
-        var nickName = player.refs.view.Owner.NickName;
-        var actorNumber = player.refs.view.Owner.ActorNumber;
+        var nickName = _player.NickName;
+        var actorNumber = _player.ActorNumber;
 
         contentEvents.Add(new ContentEventFrame(new VibeContentEvent(nickName, actorNumber, _strength, _duration),
             seenAmount, time));
@@ -24,5 +24,5 @@ public class VibedContentProvider : ContentProvider
 
     private readonly float _strength;
     private readonly float _duration;
-    public Player player;
+    private Photon.Realtime.Player _player;
 }

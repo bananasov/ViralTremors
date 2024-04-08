@@ -3,15 +3,13 @@ using System.Reflection;
 using BepInEx;
 using BepInEx.Logging;
 using ViralTremors.Buttplug;
-using ViralTremors.Integrations;
+using ViralTremors.Comments;
 using ViralTremors.Utils;
 using Zorro.Core;
-using MyceliumNetworking;
 
 namespace ViralTremors;
 
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
-[BepInDependency("RugbugRedfern.MyceliumNetworking", BepInDependency.DependencyFlags.SoftDependency)]
 public class ViralTremors : BaseUnityPlugin
 {
     public static ViralTremors Instance { get; private set; } = null!;
@@ -26,13 +24,9 @@ public class ViralTremors : BaseUnityPlugin
         DeviceManager = new DeviceManager("ViralTremors");
         DeviceManager.ConnectDevices();
 
-        if (MyceliumIntegration.enabled)
-        {
-            MyceliumNetwork.RegisterNetworkObject(this, 14927292); // Random keyboard mashing mod id
-            MyceliumIntegration.InitializeIntegration();
-        }
-
         Hook();
+
+        if (Buttplug.Config.Comments.Enabled!.Value) CommentManager.Initialize();
 
         Logger.LogInfo($"{MyPluginInfo.PLUGIN_GUID} v{MyPluginInfo.PLUGIN_VERSION} has loaded!");
     }
