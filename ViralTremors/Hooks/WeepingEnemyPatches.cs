@@ -9,7 +9,7 @@ public static class WeepingEnemyPatches
     public static void Init()
     {
         ViralTremors.Logger.LogInfo("Patching Bot_Weeping functions.");
-        
+
         On.Bot_Weeping.TryCapturePlayer += TryCapturePlayerPatch;
     }
 

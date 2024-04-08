@@ -14,32 +14,17 @@ public class VibeContentEvent : ContentEvent
         PlayerName = playerName;
         ActorNumber = actorNumber;
     }
-    
-    public override float GetContentValue()
-    {
-        return 1000f; // Pretty fucking big.
-    }
-    
-    public override Comment GenerateComment()
-    {
-        return new Comment(FixPlayerName(VIBE_COMMENTS.GetRandom()));
-    }
 
-    public override int GetUniqueID()
-    {
-        return ActorNumber;
-    }
+    public override float GetContentValue() => 1000f; // Pretty fucking big.
 
-    public override ushort GetID()
-    {
-        return 5601;
-    }
+    public override Comment GenerateComment() => new(FixPlayerName(VIBE_COMMENTS.GetRandom()));
 
-    public override string GetName()
-    {
-        return "PlayerVibed";
-    }
-    
+    public override int GetUniqueID() => ActorNumber;
+
+    public override ushort GetID() => 5601;
+
+    public override string GetName() => "PlayerVibed";
+
     public override void Serialize(BinarySerializer serializer)
     {
         serializer.WriteInt(ActorNumber);
@@ -55,11 +40,8 @@ public class VibeContentEvent : ContentEvent
         Strength = deserializer.ReadFloat();
         Duration = deserializer.ReadFloat();
     }
-    
-    public string FixPlayerName(string comment)
-    {
-        return comment.Replace("<playername>", this.PlayerName);
-    }
+
+    public string FixPlayerName(string comment) => comment.Replace("<playername>", this.PlayerName);
 
     public string PlayerName;
     public int ActorNumber;

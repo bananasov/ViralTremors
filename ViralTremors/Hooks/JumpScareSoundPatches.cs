@@ -16,7 +16,7 @@ public static class JumpScareSoundPatches
     private static void JumpScareSoundOnScare(On.JumpScareSound.orig_Scare orig, JumpScareSound self)
     {
         orig(self);
-        
+
         if (ViralTremors.DeviceManager.IsConnected() &&
             Config.Jumpscare.Enabled!.Value)
         {

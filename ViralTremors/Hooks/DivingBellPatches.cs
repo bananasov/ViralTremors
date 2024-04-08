@@ -9,7 +9,7 @@ public static class DivingBellPatches
     public static void Init()
     {
         ViralTremors.Logger.LogInfo("Patching DiveBell functions.");
-        
+
         On.DivingBell.GoToSurface += DivingBellOnGoToSurface;
         On.DivingBell.GoUnderground += DivingBellOnGoUnderground;
     }
