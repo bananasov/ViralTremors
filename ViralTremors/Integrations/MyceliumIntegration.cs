@@ -1,6 +1,10 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using ViralTremors.Buttplug;
 using ViralTremors.Comments.Events;
+using MyceliumNetworking;
+using ViralTremors.Comments.Providers;
 
 namespace ViralTremors.Integrations;
 
@@ -40,6 +44,13 @@ public class MyceliumIntegration
             5601 => new VibeContentEvent(),
             _ => orig(id)
         };
+    }
+    
+    [CustomRPC]
+    private void ReplicateProvider(float strength, float duration, Player player)
+    {
+        // TODO: Implement this to sync provider to player holding camera
+        throw new NotImplementedException();
     }
 
     private static void DeviceManagerOnOnVibrated(object sender, VibratedEventArgs e)
