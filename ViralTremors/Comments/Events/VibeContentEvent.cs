@@ -7,6 +7,10 @@ namespace ViralTremors.Comments.Events;
 public class VibeContentEvent : ContentEvent
 {
     // I am well aware i have basically reimplemented PlayerBaseEvent.
+    public VibeContentEvent()
+    {
+    }
+
     public VibeContentEvent(string playerName, int actorNumber, float strength, float duration)
     {
         Strength = strength;
@@ -41,7 +45,7 @@ public class VibeContentEvent : ContentEvent
         Duration = deserializer.ReadFloat();
     }
 
-    public string FixPlayerName(string comment) => comment.Replace("<playername>", this.PlayerName);
+    public string FixPlayerName(string comment) => comment.Replace("<playername>", PlayerName);
 
     public string PlayerName;
     public int ActorNumber;
