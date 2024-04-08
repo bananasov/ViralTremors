@@ -3,6 +3,7 @@ using System.Reflection;
 using BepInEx;
 using BepInEx.Logging;
 using ViralTremors.Buttplug;
+using ViralTremors.Integrations;
 using ViralTremors.Utils;
 using Zorro.Core;
 
@@ -23,6 +24,11 @@ public class ViralTremors : BaseUnityPlugin
         DeviceManager = new DeviceManager("ViralTremors");
         DeviceManager.ConnectDevices();
 
+        if (MyceliumIntegration.enabled)
+        {
+            MyceliumIntegration.InitializeIntegration();
+        }
+
         Hook();
 
         Logger.LogInfo($"{MyPluginInfo.PLUGIN_GUID} v{MyPluginInfo.PLUGIN_VERSION} has loaded!");
@@ -30,13 +36,14 @@ public class ViralTremors : BaseUnityPlugin
 
     private static void Hook()
     {
-        ValueTuple<MethodInfo, Attribute>[] methodsWithAttribute = ReflectionUtility.GetMethodsWithAttribute<PatchInitAttribute>();
+        ValueTuple<MethodInfo, Attribute>[] methodsWithAttribute =
+            ReflectionUtility.GetMethodsWithAttribute<PatchInitAttribute>();
         foreach (var valueTuple in methodsWithAttribute)
         {
             var method = valueTuple.Item1;
-            method.Invoke(null, Array.Empty<object>()); 
+            method.Invoke(null, Array.Empty<object>());
         }
-        
+
         Logger.LogInfo("Hooking finished");
     }
 }
