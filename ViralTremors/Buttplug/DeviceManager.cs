@@ -13,7 +13,7 @@ public class DeviceManager
 {
     private List<ButtplugClientDevice> ConnectedDevices { get; }
     private ButtplugClient ButtplugClient { get; }
-    public event EventHandler<VibratedEventArgs> OnVibrated; 
+    public event EventHandler<VibratedEventArgs> OnVibrated;
 
     public DeviceManager(string clientName)
     {

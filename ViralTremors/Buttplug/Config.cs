@@ -100,6 +100,11 @@ internal static class Config
         internal static ConfigEntry<float>? Strength { get; set; }
     }
 
+    internal static class Comments
+    {
+        internal static ConfigEntry<bool>? Enabled { get; set; }
+    }
+
     static Config()
     {
         ConfigFile = new ConfigFile(Paths.ConfigPath + "\\ViralTremors.cfg", true);
@@ -247,6 +252,13 @@ internal static class Config
             new ConfigDescription("Length of time to vibrate for"));
         BombExplosion.Strength = ConfigFile.Bind(new ConfigDefinition("Vibrations.BombExplosion", "Strength"), 1.0f,
             new ConfigDescription("The strength of the vibration (value from 0.0 to 1.0)"));
+
+        #endregion
+
+        #region Comment bindings
+
+        BombExplosion.Enabled = ConfigFile.Bind(new ConfigDefinition("Vibrations.Comments", "Enabled"), true,
+            new ConfigDescription("Register a comment when your toy gets vibrated"));
 
         #endregion
     }
