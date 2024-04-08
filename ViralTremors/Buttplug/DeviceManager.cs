@@ -13,6 +13,7 @@ public class DeviceManager
 {
     private List<ButtplugClientDevice> ConnectedDevices { get; set; }
     private ButtplugClient ButtplugClient { get; set; }
+    public event EventHandler<VibratedEventArgs> OnVibrated; 
 
     public DeviceManager(string clientName)
     {
@@ -47,6 +48,7 @@ public class DeviceManager
     public void VibrateConnectedDevicesWithDuration(float intensity, float time)
     {
         ConnectedDevices.ForEach(Action);
+        OnVibrated(this, new VibratedEventArgs(time, intensity));
         return;
 
         async void Action(ButtplugClientDevice device)
@@ -107,5 +109,17 @@ public class DeviceManager
     private static bool IsVibratableDevice(ButtplugClientDevice device)
     {
         return device.VibrateAttributes.Count > 0;
+    }
+}
+
+public class VibratedEventArgs
+{
+    public float Duration { get; set; }
+    public float Strength { get; set; }
+
+    public VibratedEventArgs(float duration, float strength)
+    {
+        Duration = duration;
+        Strength = strength;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using ViralTremors.Buttplug;
 
 namespace ViralTremors.Integrations;
 
@@ -20,5 +21,12 @@ public class MyceliumIntegration
     public static void InitializeIntegration()
     {
         ViralTremors.Logger.LogInfo("Initializing MyceliumNetworking integration");
+        
+        ViralTremors.DeviceManager.OnVibrated += DeviceManagerOnOnVibrated;
+    }
+
+    private static void DeviceManagerOnOnVibrated(object sender, VibratedEventArgs e)
+    {
+        throw new System.NotImplementedException();
     }
 }
