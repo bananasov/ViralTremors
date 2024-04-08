@@ -64,6 +64,17 @@ public class VibeContentEvent : ContentEvent
         "I hope <playername> is enjoying themselves.",
         "I think <playername> is enjoying themselves a bit too much.",
         "I think <playername> might be leaking",
-        "Did <playername> make a mess?"
+        "Did <playername> make a mess?",
+        "Its so powerful, is this safe for <playername> to be using?",
+        "What's that noise? is <playername> using my boyfriends toy?",
+        "That's GOT TO feel good.",
+        "Whoa, talk about a vibration, I thought a second diving bell was hitting the floor!",
+        "Talk about a monster, <playername> can take some serious power.",
+        "SpookTube?? More like moan tube! <playername> needs to calm down... this must be the new SpookTube meta.",
+        "Monsters & Toys... name a better duo.",
+        "This reminds me, I need to order one of these toys on ESpook, or maybe Spookazon.",
+        "<playername> is probably hoping this factory has more toys.",
+        "SpookTube meta just dropped! <playername> might get banned for this...",
+        "Message blocked for review: \"Talk about a diving bell... that toy is deep inside <playername>\".",
     };
 }
