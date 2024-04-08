@@ -11,8 +11,8 @@ namespace ViralTremors.Buttplug;
 
 public class DeviceManager
 {
-    private List<ButtplugClientDevice> ConnectedDevices { get; set; }
-    private ButtplugClient ButtplugClient { get; set; }
+    private List<ButtplugClientDevice> ConnectedDevices { get; }
+    private ButtplugClient ButtplugClient { get; }
     public event EventHandler<VibratedEventArgs> OnVibrated; 
 
     public DeviceManager(string clientName)
@@ -75,7 +75,7 @@ public class DeviceManager
 
     public void StopConnectedDevices()
     {
-        ConnectedDevices.ForEach(async (ButtplugClientDevice device) => await device.Stop());
+        ConnectedDevices.ForEach(async device => await device.Stop());
     }
 
     internal void CleanUp()
