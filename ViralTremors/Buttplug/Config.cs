@@ -258,7 +258,7 @@ internal static class Config
         #region Comment bindings
 
         Comments.Enabled = ConfigFile.Bind(new ConfigDefinition("Vibrations.Comments", "Enabled"), true,
-            new ConfigDescription("Register a comment when your toy gets vibrated"));
+            new ConfigDescription("Register a comment and give you score when your toy gets vibrated"));
 
         #endregion
     }
