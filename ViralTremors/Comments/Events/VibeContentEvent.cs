@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using ContentLibrary;
+using System.Text;
 using Zorro.Core;
 using Zorro.Core.Serizalization;
 
@@ -19,13 +20,17 @@ public class VibeContentEvent : ContentEvent
         ActorNumber = actorNumber;
     }
 
-    public override float GetContentValue() => 1000f; // Pretty fucking big.
+    /* 
+     * Nuh uh, make it reasonable now. This is double a 100$ base emote, could probably scale it with runs
+     * You could probably vary it according to strength and duration
+     */
+    public override float GetContentValue() => 10f;
 
     public override Comment GenerateComment() => new(FixPlayerName(VIBE_COMMENTS.GetRandom()));
 
     public override int GetUniqueID() => ActorNumber;
 
-    public override ushort GetID() => 5601;
+    public override ushort GetID() => ContentHandler.GetEventID(nameof(VibeContentEvent));
 
     public override string GetName() => "PlayerVibed";
 
@@ -47,7 +52,7 @@ public class VibeContentEvent : ContentEvent
 
     public string FixPlayerName(string comment) => comment.Replace("<playername>", PlayerName);
 
-    public string PlayerName;
+    public string? PlayerName;
     public int ActorNumber;
     public float Strength;
     public float Duration;
