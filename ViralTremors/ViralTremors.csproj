@@ -46,6 +46,13 @@
         <Reference Include="MMHOOK_Assembly-CSharp-firstpass" HintPath="$(MMHOOK_REFERENCES)\MMHOOK_Assembly-CSharp-firstpass.dll" Private="False" />
     </ItemGroup>
 
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+            <_Parameter1>ContentWarning.VanillaCompatible</_Parameter1>
+            <_Parameter2>true</_Parameter2>
+        </AssemblyAttribute>
+    </ItemGroup>
+    
     <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
         <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all"/>
     </ItemGroup>
