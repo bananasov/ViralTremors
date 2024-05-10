@@ -13,10 +13,10 @@ public static class PlayerPatches
         On.Player.TakeDamage += PlayerOnTakeDamage;
         On.Player.Die += PlayerOnDie;
         On.Player.CallRevive += PlayerOnCallRevive;
-        On.Player.Heal += PlayerOnHeal;
+        On.Player.CallHeal += PlayerOnHeal;
     }
 
-    private static bool PlayerOnHeal(On.Player.orig_Heal orig, Player self, float healamount)
+    private static bool PlayerOnHeal(On.Player.orig_CallHeal orig, Player self, float healamount)
     {
         var balls = orig(self, healamount);
         
