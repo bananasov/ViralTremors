@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 ---
+## [1.2.1](https://github.com/bananasov/LethalVibrations/compare/v1.2.0..v1.2.1) - 2024-05-10
+
+### Bug Fixes
+
+- Fix healing vibration not working - ([3bc1875](https://github.com/bananasov/LethalVibrations/commit/3bc1875a92b56645a4359d3625690c49799fa7a0)) - sovnya
+- Add VanillaCompatible attribute - ([c4e5d9f](https://github.com/bananasov/LethalVibrations/commit/c4e5d9f8680ec74eabcc26a603812c0a93e4cf01)) - sovnya
+
+### Miscellaneous Chores
+
+- Update README - ([65ff460](https://github.com/bananasov/LethalVibrations/commit/65ff460903993164a1dead26f620442458715e46)) - sovnya
+
+### Style
+
+- Fix silly if statement block - ([6e8f0de](https://github.com/bananasov/LethalVibrations/commit/6e8f0decbe594c5354666460092581f41a87219a)) - sovnya
+
+---
 ## [1.2.0](https://github.com/bananasov/LethalVibrations/compare/v1.1.0..v1.2.0) - 2024-04-06
 
 ### Features
